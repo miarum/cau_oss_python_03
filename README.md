@@ -6,3 +6,6 @@ Homework#2, simple calculator 구현
 
 ## 2023_05-16
 Homework#4, figure 모듈 구현
+
+## 2023_06-01
+Homework#5, figure 모듈 수정, git branch 실습
