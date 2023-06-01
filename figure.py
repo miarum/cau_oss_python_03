@@ -1,41 +1,54 @@
-"""
-figure 모듈은 도형의 넓이 함수와 클래스를 제공하는 모듈입니다.
-line class에서 도형의 길이를 설정,수정하고
-area_square, area_circle, area_regular_triangle 함수에서 
-정사각형, 원, 정삼각형 모양의 도형 넓이를 반환합니다.
-"""
 import math
 
 class line:
-    __length=0
-    def __init__(self,length):
+    """
+    line은 길이에 대한 정보를 저장하는 클래스입니다.
+    변수로 __width와 __height가 있고 
+    접근하기 위해 set_length,get_length 메소드를 제공합니다.
+    """
+    __width=0
+    __height=0
+    def __init__(self,width,height):
         """
-        초기 length값은 받습니다
+        생산자를 통해 초기 __width값과 __height값을 지정합니다.
         """
-        self.__length=length
-    def set_length(self,length):
+        self.__width=width
+        self.__height=height
+
+    def set_length(self,width,height):
         """
-        length의 값을 수정합니다.
+        width,height 값을 수정하는 메소드
         """
-        self._length=length
+        self.__width=width
+        self.__height=height
+
     def get_length(self):
         """
-        저장된 length 값은 반환합니다.
+        저장하고 있는 width,height 값을 반환하는 메소드
         """
-        return self.__length
-    def area_square(length):
-        """
-        정사각형의 넓이를 구하는 함수
-        """
-        return length*length
-    def area_circle(length):
-        """
-        정삼각형의 넓이를 구하는 함수
-        """
-        return length*length*math.pi
-    def area_regular_triangle(length):
-        """
-        원의 넓이를 구하는 함수
-        """
-        return length*length*math.sqrt(3)/4
+        return self.__width, self.__height
     
+    def area_rectangle(width,height):
+        """
+        입력받은 width와 height로
+        직사각형의 넓이를 구하는 함수
+        0이하의 수를 입력 받으면 ValueError
+        """
+        if width<=0 or height<=0: raise ValueError
+        return width*height
+    
+    def area_ellipse(width,height):
+        """
+        입력받은 width와 height로 타원의 넓이를 구하는 함수
+        0이하의 수를 입력 받으면 ValueError
+        """
+        if width<=0 or height<=0: raise ValueError
+        return width*height*math.pi
+    
+    def area_right_triangle(width,height):
+        """
+        입력받은 widght와 height로 정삼각형의 넓이를 구하는 함수
+        0이하의 수를 입력 받으면 ValueError
+        """
+        if width<=0 or height<=0: raise ValueError
+        return width*height/2
